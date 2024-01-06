@@ -180,23 +180,23 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         driver.find_element(By.XPATH, My_Helpers.add_new_address).click()
         wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.wait_new_address)))
-        driver.find_element(By.ID, "address-title-input").send_keys("2 Wall Street, NY")
-        driver.find_element(By.XPATH, "//option[contains(text(),'United States')]").click()
-        driver.find_element(By.ID, "firstName-input").send_keys(fake.first_name())
-        driver.find_element(By.ID, "lastName-input").send_keys(fake.last_name())
-        driver.find_element(By.ID, "address1").send_keys("2 Wall Street")
-        driver.find_element(By.ID, "city-input").send_keys("New York")
-        driver.find_element(By.ID, "postalCode-input").send_keys("10005")
-        driver.find_element(By.XPATH, "//option[contains(text(),'New York')]").click()
-        driver.find_element(By.ID, "phone-input").send_keys("+14845524458")
+        driver.find_element(By.ID, My_Helpers.address_title_input).send_keys(My_Helpers.address_title)
+        driver.find_element(By.XPATH, My_Helpers.country).click()
+        driver.find_element(By.ID, My_Helpers.first_name).send_keys(fake.first_name())
+        driver.find_element(By.ID, My_Helpers.last_name).send_keys(fake.last_name())
+        driver.find_element(By.ID, My_Helpers.address1).send_keys(My_Helpers.address)
+        driver.find_element(By.ID, My_Helpers.city_input).send_keys(My_Helpers.city)
+        driver.find_element(By.ID, My_Helpers.postalCode).send_keys(My_Helpers.postalCode)
+        driver.find_element(By.XPATH, My_Helpers.state).click()
+        driver.find_element(By.ID, My_Helpers.phone_input).send_keys(My_Helpers.phone_number)
         # Make default address
-        driver.find_element(By.ID, "preferred-address").click()
+        driver.find_element(By.ID, My_Helpers.button_default_address).click()
         # Submit
-        driver.find_element(By.XPATH, "//button[contains(@type,'submit')]").click()
+        driver.find_element(By.XPATH, My_Helpers.button_submit_contains).click()
 
         time.sleep(3)
 
-        wait.until(EC.visibility_of_element_located((By.XPATH, "//address[contains(@data-test-id,'address-information')]")))
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.wait_menu_address)))
 
         # Check that we are back in your account
 
@@ -256,22 +256,22 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         # Change address book
 
-        driver.find_element(By.XPATH, "//a[contains(@data-test-id,'edit-address')]").click()
-        wait.until(EC.visibility_of_element_located((By.XPATH, "//div[@class='tw-10v7mpc tw-1p4ksvz']")))
-        addressTitle = driver.find_element(By.ID, "address-title-input")
+        driver.find_element(By.XPATH, My_Helpers.button_edit_address).click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.wait_new_address)))
+        addressTitle = driver.find_element(By.ID, My_Helpers.address_title_input)
         addressTitle.clear()
-        addressTitle.send_keys("Broadway, New York")
-        address1 = driver.find_element(By.ID, "address1")
+        addressTitle.send_keys(My_Helpers.address_title_new)
+        address1 = driver.find_element(By.ID, My_Helpers.address1)
         address1.clear()
-        address1.send_keys("1567 Broadway, New York")
-        postalcode = driver.find_element(By.ID, "postalCode-input")
+        address1.send_keys(My_Helpers.address_new)
+        postalcode = driver.find_element(By.ID, My_Helpers.postalCode)
         postalcode.clear()
-        postalcode.send_keys("10036")
-        driver.find_element(By.XPATH, "//button[contains(@type,'submit')]").click()
+        postalcode.send_keys(My_Helpers.postal_code_new)
+        driver.find_element(By.XPATH, My_Helpers.button_submit_contains).click()
 
         time.sleep(3)
 
-        wait.until(EC.visibility_of_element_located((By.XPATH, "//div[contains(@class,'tw-pa7mf4 tw-1p4ksvz')]")))
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.wait_menu_address_change)))
 
         # Assert that in title "PUMA Online Shop - Address Book"
 
@@ -284,8 +284,8 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         # Back to my Account
 
-        driver.find_element(By.XPATH, "//div[contains(text(),'Back to my account')]").click()
-        wait.until(EC.visibility_of_element_located((By.XPATH, "//address[contains(@data-test-id,'address-information')]")))
+        driver.find_element(By.XPATH, My_Helpers.back_to_account).click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.wait_menu_address)))
 
         # Check that we are back in your account
 
