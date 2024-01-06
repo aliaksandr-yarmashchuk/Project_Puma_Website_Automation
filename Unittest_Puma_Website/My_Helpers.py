@@ -20,6 +20,8 @@ fake = Faker()
 
 url = "https://us.puma.com/us/en"
 
+# **********POSITIVE TESTS**********
+
 # ----------All Test-Cases and Test-Case 1----------
 
 menu_bar = "//ul[contains(@role,'menubar')]"  # XPath
@@ -36,7 +38,7 @@ wait_Registr_Account = "//p[contains(.,'My account')]"  # XPath
 fake_first_name = "firstName"  # NAME
 fake_last_name = "lastName"  # NAME
 email_1 = "email"  # NAME
-# You need to change email1 every time you test
+# You need to change email every time you test
 gmail = "hgjtkdhshe@gmail.com"
 fake_password = "password"  # NAME
 button_submit = "//button[@type='submit']"  # XPath
@@ -103,6 +105,34 @@ open_cart = "//a[@data-test-id='minicart-cart-link']"  # XPath
 cart_title = "//h1[@id='section-cart-title']"  # XPath
 shoes_in_cart = "//div[contains(@class,'space-y-6 border p-3 xs:p-4 md:p-5')]"  # XPath
 
+# **********NEGATIVE TESTS**********
 
+# ----------Test-Case 1----------
 
+# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound in Test-Case 2
+
+incor_email = "abcd.def@mail"
+registration_form_error = "//div[@data-test-id='registration-form-error']"  # XPath
+
+# ----------Test-Case 2----------
+
+# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound in Test-Case 2
+
+gmail2 = "asgnjaf@gmail.com"
+incor_password = "1235678"
+
+# ----------Test-Case 3----------
+
+# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound, registration_form_error in Test-Case 2
+
+gmail3 = ""
+registration_error = "//span[contains(text(),'Please fill out all mandatory fields.')]"  # XPath
+
+# ----------Test-Case 4----------
+
+# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound, registration_error in Test-Case 2, 3
+
+gmail4 = "asgnjssaaf@gmail.com"
+empty_password = ""
+registration_error_1 = "//p[contains(text(),'Please fill out this field.')]"  # XPath
 
