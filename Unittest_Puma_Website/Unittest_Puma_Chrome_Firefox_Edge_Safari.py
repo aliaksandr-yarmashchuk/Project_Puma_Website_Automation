@@ -309,7 +309,7 @@ class Chrome_Puma_Test(unittest.TestCase):
 
     # Test-Case 6
 
-    def test6_positive_(self):
+    def test6_positive_add_item_to_card(self):
         driver = self.driver
         driver.get(My_Helpers.url)
         wait = WebDriverWait(driver, 3)
@@ -342,4 +342,30 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         print("Logged in to your account")
 
-        #
+        # Suede Classic XXI Sneakers add to cart
+
+        driver.find_element(By.XPATH, My_Helpers.section_men).click()
+        time.sleep(2)
+        driver.find_element(By.XPATH, My_Helpers.type_of_shoe).click()
+        time.sleep(2)
+        driver.find_element(By.XPATH, My_Helpers.suede_classic).click()
+        time.sleep(2)
+        driver.find_element(By.XPATH, My_Helpers.size).click()
+        driver.find_element(By.XPATH, My_Helpers.button_add_to_cart).click()
+        time.sleep(2)
+        driver.find_element(By.XPATH, My_Helpers.added_to_cart)
+        print("Suede Classic XXI Sneakers added to cart!")
+        time.sleep(1)
+
+        # Suede Classic XXI Sneakers add to cart
+
+        driver.find_element(By.XPATH, My_Helpers.open_cart).click()
+        driver.find_element(By.XPATH, My_Helpers.cart_title)
+        driver.find_element(By.XPATH, My_Helpers.shoes_in_cart)
+
+        print("The item is in the cart!")
+
+    def tearDown(self):
+        self.driver.quit()
+
+
