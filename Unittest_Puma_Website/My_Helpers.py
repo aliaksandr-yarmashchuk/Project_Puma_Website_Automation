@@ -1,7 +1,20 @@
+import time
+import unittest
+from faker import Faker
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from faker import Faker
 from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import WebDriverException as WDE
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.edge.service import Service
+
+fake = Faker()
 
 # ----------Website address----------
 
@@ -79,6 +92,16 @@ back_to_account = "//div[contains(text(),'Back to my account')]"  # XPath
 # ----------Test-Case 6----------
 
 # logIn_button, email_const, gmail_const, password_const, password, button_login_submit, logOut_button in Test-Case 3
+
+section_men = "//span[contains(text(),'Men')]"  # XPath
+type_of_shoe = "//a[@href='/us/en/men/shoes/classics']"  # XPath
+suede_classic = "//h3[contains(.,'Suede Classic XXI SneakersPuma Black-Puma Black')]"  # XPath
+size = "(//span[contains(.,'Size11')])[1]"  # XPath
+button_add_to_cart = "//button[@data-test-id='add-to-cart-button']"  # XPath
+added_to_cart = "//h1[contains(.,'Added to cart')]"  # XPath
+open_cart = "//a[@data-test-id='minicart-cart-link']"  # XPath
+cart_title = "//h1[@id='section-cart-title']"  # XPath
+shoes_in_cart = "//div[contains(@class,'space-y-6 border p-3 xs:p-4 md:p-5')]"  # XPath
 
 
 
