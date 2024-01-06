@@ -69,19 +69,20 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         # Registration User Account
 
-        driver.find_element(By.ID, "account-button").click()
-        driver.find_element(By.XPATH, "//a[@data-test-id='register-button']").click()
-        wait.until(EC.visibility_of_element_located((By.XPATH, "//p[contains(.,'My account')]")))
+        driver.find_element(By.ID, My_Helpers.account_button).click()
+        driver.find_element(By.XPATH, My_Helpers.register_button).click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.wait_Registr_Account)))
         # Enter First Name, Last Name, Email and Password
-        driver.find_element(By.NAME, "firstName").send_keys(fake.first_name())
-        driver.find_element(By.NAME, "lastName").send_keys(fake.last_name())
+        driver.find_element(By.NAME, My_Helpers.fake_first_name).send_keys(fake.first_name())
+        driver.find_element(By.NAME, My_Helpers.fake_last_name).send_keys(fake.last_name())
         # fake email doesn't work
-        driver.find_element(By.NAME, "email").send_keys("hgjtkdhshe@gmail.com")
-        driver.find_element(By.NAME, "password").send_keys(fake.password())
-        driver.find_element(By.XPATH, "//button[@type='submit']").click()
+        # You need to change email1 every time you test
+        driver.find_element(By.NAME, My_Helpers.email_1).send_keys(My_Helpers.gmail)
+        driver.find_element(By.NAME, My_Helpers.fake_password).send_keys(fake.password())
+        driver.find_element(By.XPATH, My_Helpers.button_submit).click()
         time.sleep(6)
-        wait.until(EC.visibility_of_element_located((By.XPATH, "(//div[contains(@data-uds-child,'stack')])[2]")))
-        driver.find_element(By.XPATH, "//span[contains(text(),'My account')]")
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.wait_My_Account)))
+        driver.find_element(By.XPATH, My_Helpers.text_My_Accound)
 
         # Assert that in title "PUMA Online Shop - My account"
 
@@ -113,11 +114,11 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         # Sign in User Account
 
-        driver.find_element(By.ID, "account-button").click()
-        driver.find_element(By.XPATH, "//a[@data-test-id='login-button']").click()
-        driver.find_element(By.ID, "email").send_keys("ivanov.alexander@gmail.com")
-        driver.find_element(By.ID, "password").send_keys("Test123456")
-        driver.find_element(By.XPATH, "//button[@id='login-submit']").click()
+        driver.find_element(By.ID, My_Helpers.account_button).click()
+        driver.find_element(By.XPATH, My_Helpers.logIn_button).click()
+        driver.find_element(By.ID, My_Helpers.email_const).send_keys(My_Helpers.gmail_const)
+        driver.find_element(By.ID, My_Helpers.password_const).send_keys(My_Helpers.password)
+        driver.find_element(By.XPATH, My_Helpers.button_login_submit).click()
 
         time.sleep(3)
 
@@ -133,9 +134,9 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         # Sign out
 
-        driver.find_element(By.ID, "account-button").click()
+        driver.find_element(By.ID, My_Helpers.account_button).click()
         time.sleep(3)
-        driver.find_element(By.XPATH, "//button[@data-test-id='logout-button']").click()
+        driver.find_element(By.XPATH, My_Helpers.logOut_button).click()
 
     def tearDown(self):
         self.driver.quit()
@@ -157,11 +158,11 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         # Sign in User Account
 
-        driver.find_element(By.ID, "account-button").click()
-        driver.find_element(By.XPATH, "//a[@data-test-id='login-button']").click()
-        driver.find_element(By.ID, "email").send_keys("ivanov.alexander@gmail.com")
-        driver.find_element(By.ID, "password").send_keys("Test123456")
-        driver.find_element(By.XPATH, "//button[@id='login-submit']").click()
+        driver.find_element(By.ID, My_Helpers.account_button).click()
+        driver.find_element(By.XPATH, My_Helpers.logIn_button).click()
+        driver.find_element(By.ID, My_Helpers.email_const).send_keys(My_Helpers.gmail_const)
+        driver.find_element(By.ID, My_Helpers.password_const).send_keys(My_Helpers.password)
+        driver.find_element(By.XPATH, My_Helpers.button_login_submit).click()
 
         time.sleep(6)
 
@@ -177,8 +178,8 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         # Add address book
 
-        driver.find_element(By.XPATH, "//a[@data-test-id='add-new-address']").click()
-        wait.until(EC.visibility_of_element_located((By.XPATH, "//div[@class='tw-10v7mpc tw-1p4ksvz']")))
+        driver.find_element(By.XPATH, My_Helpers.add_new_address).click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.wait_new_address)))
         driver.find_element(By.ID, "address-title-input").send_keys("2 Wall Street, NY")
         driver.find_element(By.XPATH, "//option[contains(text(),'United States')]").click()
         driver.find_element(By.ID, "firstName-input").send_keys(fake.first_name())
@@ -211,9 +212,9 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         # Sign out
 
-        driver.find_element(By.ID, "account-button").click()
+        driver.find_element(By.ID, My_Helpers.account_button).click()
         time.sleep(3)
-        driver.find_element(By.XPATH, "//button[@data-test-id='logout-button']").click()
+        driver.find_element(By.XPATH, My_Helpers.logOut_button).click()
         time.sleep(3)
     def tearDown(self):
         self.driver.quit()
@@ -235,11 +236,11 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         # Sign in User Account
 
-        driver.find_element(By.ID, "account-button").click()
-        driver.find_element(By.XPATH, "//a[@data-test-id='login-button']").click()
-        driver.find_element(By.ID, "email").send_keys("ivanov.alexander@gmail.com")
-        driver.find_element(By.ID, "password").send_keys("Test123456")
-        driver.find_element(By.XPATH, "//button[@id='login-submit']").click()
+        driver.find_element(By.ID, My_Helpers.account_button).click()
+        driver.find_element(By.XPATH, My_Helpers.logIn_button).click()
+        driver.find_element(By.ID, My_Helpers.email_const).send_keys(My_Helpers.gmail_const)
+        driver.find_element(By.ID, My_Helpers.password_const).send_keys(My_Helpers.password)
+        driver.find_element(By.XPATH, My_Helpers.button_login_submit).click()
 
         time.sleep(6)
 
@@ -299,9 +300,9 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         # Sign out
 
-        driver.find_element(By.ID, "account-button").click()
+        driver.find_element(By.ID, My_Helpers.account_button).click()
         time.sleep(3)
-        driver.find_element(By.XPATH, "//button[@data-test-id='logout-button']").click()
+        driver.find_element(By.XPATH, My_Helpers.logOut_button).click()
         time.sleep(3)
     def tearDown(self):
         self.driver.quit()
@@ -323,11 +324,11 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         # Sign in User Account
 
-        driver.find_element(By.ID, "account-button").click()
-        driver.find_element(By.XPATH, "//a[@data-test-id='login-button']").click()
-        driver.find_element(By.ID, "email").send_keys("ivanov.alexander@gmail.com")
-        driver.find_element(By.ID, "password").send_keys("Test123456")
-        driver.find_element(By.XPATH, "//button[@id='login-submit']").click()
+        driver.find_element(By.ID, My_Helpers.account_button).click()
+        driver.find_element(By.XPATH, My_Helpers.logIn_button).click()
+        driver.find_element(By.ID, My_Helpers.email_const).send_keys(My_Helpers.gmail_const)
+        driver.find_element(By.ID, My_Helpers.password_const).send_keys(My_Helpers.password)
+        driver.find_element(By.XPATH, My_Helpers.button_login_submit).click()
 
         time.sleep(6)
 
