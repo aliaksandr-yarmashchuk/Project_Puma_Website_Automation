@@ -13,6 +13,7 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.edge.service import Service
+import My_Helpers
 
 fake = Faker()
 
@@ -27,22 +28,26 @@ class Chrome_Puma_Test(unittest.TestCase):
 
     def test1_positive_opening_website_url(self):
         driver = self.driver
-        driver.get("https://us.puma.com/us/en")
+        driver.get(My_Helpers.url)
         wait = WebDriverWait(driver, 3)
-        wait.until(EC.visibility_of_element_located((By.XPATH, "//ul[contains(@role,'menubar')]")))
-        driver.find_element(By.XPATH, "//button[contains(@data-test-id,'stay-on-region-button')]").click()
-        driver.find_element(By.XPATH, "(//div[contains(@data-uds-child,'action-icon-icon')])[1]").click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.menu_bar)))
+        # Close pop-up message 1
+        driver.find_element(By.XPATH, My_Helpers.popUp_message_1).click()
+        # Close pop-up message 2
+        driver.find_element(By.XPATH, My_Helpers.popUp_message_2).click()
         driver.maximize_window()
         driver.minimize_window()
         driver.maximize_window()
 
-        # Assert that in title "Stock photos, royalty-free images, graphics, vectors & videos | Adobe Stock"
+        # Assert that in title "PUMA.com | Forever Faster."
 
         try:
             assert "PUMA.com | Forever Faster." in driver.title
             print("The title is correct: ", driver.title)
         except AssertionError:
             print("The title is not correct. The title is: ", driver.title)
+
+        print("Https protocol: ", My_Helpers.url, " is active!")
 
     def tearDown(self):
         self.driver.quit()
@@ -51,11 +56,13 @@ class Chrome_Puma_Test(unittest.TestCase):
 
     def test2_positive_registration_user_account(self):
         driver = self.driver
-        driver.get("https://us.puma.com/us/en")
+        driver.get(My_Helpers.url)
         wait = WebDriverWait(driver, 3)
-        wait.until(EC.visibility_of_element_located((By.XPATH, "//ul[contains(@role,'menubar')]")))
-        driver.find_element(By.XPATH, "//button[contains(@data-test-id,'stay-on-region-button')]").click()
-        driver.find_element(By.XPATH, "(//div[contains(@data-uds-child,'action-icon-icon')])[1]").click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.menu_bar)))
+        # Close pop-up message 1
+        driver.find_element(By.XPATH, My_Helpers.popUp_message_1).click()
+        # Close pop-up message 2
+        driver.find_element(By.XPATH, My_Helpers.popUp_message_2).click()
         driver.maximize_window()
         driver.minimize_window()
         driver.maximize_window()
@@ -76,6 +83,8 @@ class Chrome_Puma_Test(unittest.TestCase):
         wait.until(EC.visibility_of_element_located((By.XPATH, "(//div[contains(@data-uds-child,'stack')])[2]")))
         driver.find_element(By.XPATH, "//span[contains(text(),'My account')]")
 
+        # Assert that in title "PUMA Online Shop - My account"
+
         try:
             assert "PUMA Online Shop - My account" in driver.title
             print("The title is correct: ", driver.title)
@@ -91,11 +100,13 @@ class Chrome_Puma_Test(unittest.TestCase):
 
     def test3_positive_login_user_account(self):
         driver = self.driver
-        driver.get("https://us.puma.com/us/en")
+        driver.get(My_Helpers.url)
         wait = WebDriverWait(driver, 3)
-        wait.until(EC.visibility_of_element_located((By.XPATH, "//ul[contains(@role,'menubar')]")))
-        driver.find_element(By.XPATH, "//button[contains(@data-test-id,'stay-on-region-button')]").click()
-        driver.find_element(By.XPATH, "(//div[contains(@data-uds-child,'action-icon-icon')])[1]").click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.menu_bar)))
+        # Close pop-up message 1
+        driver.find_element(By.XPATH, My_Helpers.popUp_message_1).click()
+        # Close pop-up message 2
+        driver.find_element(By.XPATH, My_Helpers.popUp_message_2).click()
         driver.maximize_window()
         driver.minimize_window()
         driver.maximize_window()
@@ -109,6 +120,8 @@ class Chrome_Puma_Test(unittest.TestCase):
         driver.find_element(By.XPATH, "//button[@id='login-submit']").click()
 
         time.sleep(3)
+
+        # Assert that in title "PUMA Online Shop - My account"
 
         try:
             assert "PUMA Online Shop - My account" in driver.title
@@ -131,11 +144,13 @@ class Chrome_Puma_Test(unittest.TestCase):
 
     def test4_positive_address_book(self):
         driver = self.driver
-        driver.get("https://us.puma.com/us/en")
+        driver.get(My_Helpers.url)
         wait = WebDriverWait(driver, 3)
-        wait.until(EC.visibility_of_element_located((By.XPATH, "//ul[contains(@role,'menubar')]")))
-        driver.find_element(By.XPATH, "//button[contains(@data-test-id,'stay-on-region-button')]").click()
-        driver.find_element(By.XPATH, "(//div[contains(@data-uds-child,'action-icon-icon')])[1]").click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.menu_bar)))
+        # Close pop-up message 1
+        driver.find_element(By.XPATH, My_Helpers.popUp_message_1).click()
+        # Close pop-up message 2
+        driver.find_element(By.XPATH, My_Helpers.popUp_message_2).click()
         driver.maximize_window()
         driver.minimize_window()
         driver.maximize_window()
@@ -149,6 +164,8 @@ class Chrome_Puma_Test(unittest.TestCase):
         driver.find_element(By.XPATH, "//button[@id='login-submit']").click()
 
         time.sleep(6)
+
+        # Assert that in title "PUMA Online Shop - My account"
 
         try:
             assert "PUMA Online Shop - My account" in driver.title
@@ -173,6 +190,7 @@ class Chrome_Puma_Test(unittest.TestCase):
         driver.find_element(By.ID, "phone-input").send_keys("+14845524458")
         # Make default address
         driver.find_element(By.ID, "preferred-address").click()
+        # Submit
         driver.find_element(By.XPATH, "//button[contains(@type,'submit')]").click()
 
         time.sleep(3)
@@ -180,6 +198,8 @@ class Chrome_Puma_Test(unittest.TestCase):
         wait.until(EC.visibility_of_element_located((By.XPATH, "//address[contains(@data-test-id,'address-information')]")))
 
         # Check that we are back in your account
+
+        # Assert that in title "PUMA Online Shop - My account"
 
         try:
             assert "PUMA Online Shop - My account" in driver.title
@@ -202,11 +222,13 @@ class Chrome_Puma_Test(unittest.TestCase):
 
     def test5_positive_edit_address_in_book(self):
         driver = self.driver
-        driver.get("https://us.puma.com/us/en")
+        driver.get(My_Helpers.url)
         wait = WebDriverWait(driver, 3)
-        wait.until(EC.visibility_of_element_located((By.XPATH, "//ul[contains(@role,'menubar')]")))
-        driver.find_element(By.XPATH, "//button[contains(@data-test-id,'stay-on-region-button')]").click()
-        driver.find_element(By.XPATH, "(//div[contains(@data-uds-child,'action-icon-icon')])[1]").click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.menu_bar)))
+        # Close pop-up message 1
+        driver.find_element(By.XPATH, My_Helpers.popUp_message_1).click()
+        # Close pop-up message 2
+        driver.find_element(By.XPATH, My_Helpers.popUp_message_2).click()
         driver.maximize_window()
         driver.minimize_window()
         driver.maximize_window()
@@ -220,6 +242,8 @@ class Chrome_Puma_Test(unittest.TestCase):
         driver.find_element(By.XPATH, "//button[@id='login-submit']").click()
 
         time.sleep(6)
+
+        # Assert that in title "PUMA Online Shop - My account"
 
         try:
             assert "PUMA Online Shop - My account" in driver.title
@@ -248,6 +272,8 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         wait.until(EC.visibility_of_element_located((By.XPATH, "//div[contains(@class,'tw-pa7mf4 tw-1p4ksvz')]")))
 
+        # Assert that in title "PUMA Online Shop - Address Book"
+
         try:
             assert "PUMA Online Shop - Address Book" in driver.title
             print("The title is correct: ", driver.title)
@@ -261,6 +287,8 @@ class Chrome_Puma_Test(unittest.TestCase):
         wait.until(EC.visibility_of_element_located((By.XPATH, "//address[contains(@data-test-id,'address-information')]")))
 
         # Check that we are back in your account
+
+        # Assert that in title "PUMA Online Shop - My account"
 
         try:
             assert "PUMA Online Shop - My account" in driver.title
@@ -282,11 +310,13 @@ class Chrome_Puma_Test(unittest.TestCase):
 
     def test6_positive_(self):
         driver = self.driver
-        driver.get("https://us.puma.com/us/en")
+        driver.get(My_Helpers.url)
         wait = WebDriverWait(driver, 3)
-        wait.until(EC.visibility_of_element_located((By.XPATH, "//ul[contains(@role,'menubar')]")))
-        driver.find_element(By.XPATH, "//button[contains(@data-test-id,'stay-on-region-button')]").click()
-        driver.find_element(By.XPATH, "(//div[contains(@data-uds-child,'action-icon-icon')])[1]").click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, My_Helpers.menu_bar)))
+        # Close pop-up message 1
+        driver.find_element(By.XPATH, My_Helpers.popUp_message_1).click()
+        # Close pop-up message 2
+        driver.find_element(By.XPATH, My_Helpers.popUp_message_2).click()
         driver.maximize_window()
         driver.minimize_window()
         driver.maximize_window()
@@ -300,6 +330,8 @@ class Chrome_Puma_Test(unittest.TestCase):
         driver.find_element(By.XPATH, "//button[@id='login-submit']").click()
 
         time.sleep(6)
+
+        # Assert that in title "PUMA Online Shop - My account"
 
         try:
             assert "PUMA Online Shop - My account" in driver.title
