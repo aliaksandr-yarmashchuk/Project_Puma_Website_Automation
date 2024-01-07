@@ -109,30 +109,54 @@ shoes_in_cart = "//div[contains(@class,'space-y-6 border p-3 xs:p-4 md:p-5')]"  
 
 # ----------Test-Case 1----------
 
-# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound in Test-Case 2
+# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound in Positive Test-Case 2 and registration_form_error in Negative Test-Case 1
 
 incor_email = "abcd.def@mail"
 registration_form_error = "//div[@data-test-id='registration-form-error']"  # XPath
 
 # ----------Test-Case 2----------
 
-# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound in Test-Case 2
+# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound in Positive Test-Case 2
 
 gmail2 = "asgnjaf@gmail.com"
 incor_password = "1235678"
 
 # ----------Test-Case 3----------
 
-# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound, registration_form_error in Test-Case 2
+# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound, registration_form_error in Positive Test-Case 2
 
 gmail3 = ""
 registration_error = "//span[contains(text(),'Please fill out all mandatory fields.')]"  # XPath
 
 # ----------Test-Case 4----------
 
-# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound, registration_error in Test-Case 2, 3
+# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound, registration_error in Positive Test-Case 2 and Negative Test-Case 3
 
 gmail4 = "asgnjssaaf@gmail.com"
 empty_password = ""
 registration_error_1 = "//p[contains(text(),'Please fill out this field.')]"  # XPath
 
+
+# ----------Test-Case 5----------
+
+# logIn_button, email_const, password_const, password, button_login_submit, button_login_submit in Positive Test-Case 3
+
+gmail_invalid = "ivanov.aliaksandr@gmail.com"
+login_form_error = "//p[contains(.,'Invalid login or password. Remember that login names and passwords are case-sensitive. Please try again.')]"  # XPath
+
+
+# ----------Test-Case 6----------
+
+# logIn_button, email_const, password_const, password, button_login_submit, button_login_submit in Positive Test-Case 3 and login_form_error in Negative Test-Case 5
+
+password_1 = "Sdk445566"
+
+# **********Ad-hoc TESTS**********
+
+# ----------Test-Case 1----------
+
+# register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound in Positive Test-Case 2 and registration_form_error in Negative Test-Case 1
+
+adhoc_gmail = "ivanov.alexander@gmail.com ivanov.alexander@gmail.com"
+registration_error_2 = "//span[contains(text(),'Please fill out all mandatory fields.')]"  # XPath
+registration_error_3 = "//p[contains(text(),'You need to have a valid email.')]"  # XPath
