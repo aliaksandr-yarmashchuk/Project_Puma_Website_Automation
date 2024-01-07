@@ -116,7 +116,7 @@ class Chrome_Puma_Test(unittest.TestCase):
 
         driver.find_element(By.ID, HP.account_button).click()
         driver.find_element(By.XPATH, HP.logIn_button).click()
-        driver.find_element(By.ID, HP.email_const).send_keys(HP.gmail_const)
+        driver.find_element(By.ID, HP.email_const).send_keys(HP.gmail_invalid)
         driver.find_element(By.ID, HP.password_const).send_keys(HP.password)
         driver.find_element(By.XPATH, HP.button_login_submit).click()
 
@@ -372,7 +372,7 @@ class Chrome_Puma_Test(unittest.TestCase):
 
     # ----------Test-Case 1----------
 
-    def test1_negative_incorrect_email(self):
+    def test1_negative_registration_incorrect_email(self):
         driver = self.driver
         driver.get(HP.url)
         wait = WebDriverWait(driver, 3)
@@ -419,7 +419,7 @@ class Chrome_Puma_Test(unittest.TestCase):
 
     # ----------Test-Case 2----------
 
-    def test2_negative_incorrect_password(self):
+    def test2_negative_registration_incorrect_password(self):
         driver = self.driver
         driver.get(HP.url)
         wait = WebDriverWait(driver, 3)
@@ -465,7 +465,7 @@ class Chrome_Puma_Test(unittest.TestCase):
 
     # ----------Test-Case 3----------
 
-    def test3_negative_empty_email(self):
+    def test3_negative_registration_empty_email(self):
         driver = self.driver
         driver.get(HP.url)
         wait = WebDriverWait(driver, 3)
@@ -509,7 +509,7 @@ class Chrome_Puma_Test(unittest.TestCase):
 
     # ----------Test-Case 4----------
 
-    def test4_negative_empty_password(self):
+    def test4_negative_registration_empty_password(self):
         driver = self.driver
         driver.get(HP.url)
         wait = WebDriverWait(driver, 3)
@@ -548,6 +548,118 @@ class Chrome_Puma_Test(unittest.TestCase):
             print("Negative Test PASSED. You need to have a valid Password!")
         except WDE:
             print("Negative Test FALSE. Account created!")
+
+    def tearDown(self):
+        self.driver.quit()
+
+    # ----------Test-Case 5----------
+
+    def test5_negative_login_user_account_invalid_email(self):
+        driver = self.driver
+        driver.get(HP.url)
+        wait = WebDriverWait(driver, 3)
+        wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
+        # Close pop-up message 1
+        driver.find_element(By.XPATH, HP.popUp_message_1).click()
+        # Close pop-up message 2
+        driver.find_element(By.XPATH, HP.popUp_message_2).click()
+        driver.maximize_window()
+        driver.minimize_window()
+        driver.maximize_window()
+
+        # Sign in User Account
+
+        driver.find_element(By.ID, HP.account_button).click()
+        driver.find_element(By.XPATH, HP.logIn_button).click()
+        driver.find_element(By.ID, HP.email_const).send_keys(HP.gmail_invalid)
+        driver.find_element(By.ID, HP.password_const).send_keys(HP.password)
+        driver.find_element(By.XPATH, HP.button_login_submit).click()
+        time.sleep(3)
+        try:
+            driver.find_element(By.XPATH, HP.login_form_error)
+            print("Negative Test PASSED. Invalid login or password. Remember that login names and passwords are case-sensitive. Please try again!")
+        except WDE:
+            print("Negative Test FALSE. Logged in to your account!")
+
+    def tearDown(self):
+        self.driver.quit()
+
+    # ----------Test-Case 6----------
+
+    def test6_negative_login_user_account_invalid_password(self):
+        driver = self.driver
+        driver.get(HP.url)
+        wait = WebDriverWait(driver, 3)
+        wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
+        # Close pop-up message 1
+        driver.find_element(By.XPATH, HP.popUp_message_1).click()
+        # Close pop-up message 2
+        driver.find_element(By.XPATH, HP.popUp_message_2).click()
+        driver.maximize_window()
+        driver.minimize_window()
+        driver.maximize_window()
+
+        # Sign in User Account
+
+        driver.find_element(By.ID, HP.account_button).click()
+        driver.find_element(By.XPATH, HP.logIn_button).click()
+        driver.find_element(By.ID, HP.email_const).send_keys(HP.gmail_const)
+        driver.find_element(By.ID, HP.password_const).send_keys(HP.password_1)
+        driver.find_element(By.XPATH, HP.button_login_submit).click()
+        time.sleep(3)
+        try:
+            driver.find_element(By.XPATH, HP.login_form_error)
+            print("Negative Test PASSED. Invalid login or password. Remember that login names and passwords are case-sensitive. Please try again!")
+        except WDE:
+            print("Negative Test FALSE. Logged in to your account!")
+
+    def tearDown(self):
+        self.driver.quit()
+
+    # -----------NEGATIVE TESTS-----------
+
+    # ----------Test-Case 1----------
+
+    def test1_Adhoc_registration_incorrect_email(self):
+        driver = self.driver
+        driver.get(HP.url)
+        wait = WebDriverWait(driver, 3)
+        wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
+        # Close pop-up message 1
+        driver.find_element(By.XPATH, HP.popUp_message_1).click()
+        # Close pop-up message 2
+        driver.find_element(By.XPATH, HP.popUp_message_2).click()
+        driver.maximize_window()
+        driver.minimize_window()
+        driver.maximize_window()
+
+        # Registration User Account
+
+        driver.find_element(By.ID, HP.account_button).click()
+        driver.find_element(By.XPATH, HP.register_button).click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, HP.wait_Registr_Account)))
+
+        # Assert that in title "PUMA Online Shop - Account Register"
+
+        try:
+            assert "PUMA Online Shop - Account Register" in driver.title
+            print("The title is correct: ", driver.title)
+        except AssertionError:
+            print("The title is not correct. The title is: ", driver.title)
+
+        # Enter First Name, Last Name, Email and Password
+        driver.find_element(By.NAME, HP.fake_first_name).send_keys(fake.first_name())
+        driver.find_element(By.NAME, HP.fake_last_name).send_keys(fake.last_name())
+        driver.find_element(By.NAME, HP.email_1).send_keys(HP.adhoc_gmail)
+        driver.find_element(By.NAME, HP.fake_password).send_keys(fake.password())
+        driver.find_element(By.XPATH, HP.button_submit).click()
+        time.sleep(3)
+        try:
+            driver.find_element(By.XPATH, HP.registration_error_2)
+            #driver.find_element(By.XPATH, HP.registration_error_3)
+            print("Ad-hoc Test PASSED. You need to have a valid email!")
+        except WDE:
+            print("Ad-hoc Test FALSE. Account created!")
 
     def tearDown(self):
         self.driver.quit()
