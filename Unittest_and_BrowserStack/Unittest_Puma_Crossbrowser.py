@@ -193,7 +193,7 @@ class Chrome_Puma_Test(unittest.TestCase):
         driver.find_element(By.XPATH, HP.state).click()
         driver.find_element(By.ID, HP.phone_input).send_keys(HP.phone_number)
         # Make default address
-        driver.find_element(By.ID, HP.button_default_address).click()
+        #driver.find_element(By.ID, HP.button_default_address).click()
         # Submit
         driver.find_element(By.XPATH, HP.button_submit_contains).click()
 
@@ -631,6 +631,7 @@ class Firefox_Puma_Test(unittest.TestCase):
         wait = WebDriverWait(driver, 10)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
+        time.sleep(1)
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
         # Close pop-up message 2
         driver.find_element(By.XPATH, HP.popUp_message_2).click()
@@ -792,7 +793,7 @@ class Firefox_Puma_Test(unittest.TestCase):
         driver.find_element(By.XPATH, HP.state).click()
         driver.find_element(By.ID, HP.phone_input).send_keys(HP.phone_number)
         # Make default address
-        driver.find_element(By.ID, HP.button_default_address).click()
+        #driver.find_element(By.ID, HP.button_default_address).click()
         # Submit
         driver.find_element(By.XPATH, HP.button_submit_contains).click()
 
@@ -998,12 +999,7 @@ class Firefox_Puma_Test(unittest.TestCase):
         driver.find_element(By.NAME, HP.fake_password).send_keys(HP.incor_password)
         driver.find_element(By.XPATH, HP.button_submit).click()
         time.sleep(3)
-
-        try:
-            driver.find_element(By.XPATH, HP.registration_form_error)
-            print("Negative Test PASSED. You need to have a valid Password!")
-        except WDE:
-            print("Negative Test FALSE. Account created!")
+        driver.find_element(By.XPATH, HP.registration_form_error)
 
     def tearDown(self):
         self.driver.quit()

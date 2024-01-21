@@ -21,8 +21,8 @@ fake_first_name = "firstName"  # NAME
 fake_last_name = "lastName"  # NAME
 email_1 = "email"  # NAME
 # You need to change email every time you test
-gmail = "tpbmht@gmail.com"
-gmail_firefox = "hgyrhawj@gmail.com"
+gmail = "tpbmlht@gmail.com"
+gmail_firefox = "hgrhklwj@gmail.com"
 gmail_edge = "uitoorje@gmail.com"
 gmail_safari = "nvbysyrh@gmail.com"
 fake_password = "password"  # NAME
@@ -90,7 +90,7 @@ registration_form_error = "//div[@data-test-id='registration-form-error']"  # XP
 
 # register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound in Positive Test-Case 2
 # You need to change email every time you test
-gmail2 = "uukhka@gmail.com"
+gmail2 = "uukhkja@gmail.com"
 gmail_firefox2 = "urhsbcfl@gmail.com"
 gmail_edge2 = "nbbshsu@gmail.com"
 gmail_safari2 = "lnsgqsb@gmail.com"
