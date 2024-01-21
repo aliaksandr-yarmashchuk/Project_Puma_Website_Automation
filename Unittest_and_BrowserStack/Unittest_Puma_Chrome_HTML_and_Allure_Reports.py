@@ -195,7 +195,7 @@ class Chrome_Puma_Test(unittest.TestCase):
         driver.find_element(By.XPATH, HP.state).click()
         driver.find_element(By.ID, HP.phone_input).send_keys(HP.phone_number)
         # Make default address
-        driver.find_element(By.ID, HP.button_default_address).click()
+        #driver.find_element(By.ID, HP.button_default_address).click()
         # Submit
         driver.find_element(By.XPATH, HP.button_submit_contains).click()
 
@@ -612,9 +612,9 @@ if __name__ == '__main__':
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='./HtmlReports'))
 #    unittest.main(AllureReports)
 
-    """ 
-    Allure Report:
-    py.test --alluredir=./AllureReports ./Unittest_Puma_Chrome_HTML_and_Allure_Reports.py
-    HTML Report:
-    python3 \Unittest_Puma_Chrome_HTML_and_Allure_Reports.py
-    """
+
+#    Allure Report:
+#    py.test --alluredir=./AllureReports ./Unittest_Puma_Chrome_HTML_and_Allure_Reports.py
+#    HTML Report:
+#    python3 \Unittest_Puma_Chrome_HTML_and_Allure_Reports.py
+
