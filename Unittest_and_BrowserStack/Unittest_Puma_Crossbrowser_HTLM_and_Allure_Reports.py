@@ -1,6 +1,8 @@
 import time
 import unittest
 from faker import Faker
+import AllureReports
+import HtmlTestRunner
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -400,12 +402,7 @@ class Chrome_Puma_Test(unittest.TestCase):
         driver.find_element(By.NAME, HP.fake_password).send_keys(HP.incor_password)
         driver.find_element(By.XPATH, HP.button_submit).click()
         time.sleep(3)
-
-        try:
-            driver.find_element(By.XPATH, HP.registration_form_error)
-            print("Negative Test PASSED. You need to have a valid Password!")
-        except WDE:
-            print("Negative Test FALSE. Account created!")
+        driver.find_element(By.XPATH, HP.registration_form_error)
 
     def tearDown(self):
         self.driver.quit()
@@ -999,12 +996,8 @@ class Edge_Puma_Test(unittest.TestCase):
         driver.find_element(By.NAME, HP.fake_password).send_keys(HP.incor_password)
         driver.find_element(By.XPATH, HP.button_submit).click()
         time.sleep(3)
+        driver.find_element(By.XPATH, HP.registration_form_error)
 
-        try:
-            driver.find_element(By.XPATH, HP.registration_form_error)
-            print("Negative Test PASSED. You need to have a valid Password!")
-        except WDE:
-            print("Negative Test FALSE. Account created!")
 
     def tearDown(self):
         self.driver.quit()
@@ -1647,12 +1640,7 @@ class Safari_Puma_Test(unittest.TestCase):
         driver.find_element(By.NAME, HP.fake_password).send_keys(HP.incor_password)
         driver.find_element(By.XPATH, HP.button_submit).click()
         time.sleep(3)
-
-        try:
-            driver.find_element(By.XPATH, HP.registration_form_error)
-            print("Negative Test PASSED. You need to have a valid Password!")
-        except WDE:
-            print("Negative Test FALSE. Account created!")
+        driver.find_element(By.XPATH, HP.registration_form_error)
 
     def tearDown(self):
         self.driver.quit()
@@ -1899,6 +1887,16 @@ class Safari_Puma_Test(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
+
+if __name__ == '__main__':
+#    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='./HtmlReports'))
+    unittest.main(AllureReports)
+
+
+#    Allure Report:
+#    py.test --alluredir=./AllureReports ./Unittest_Puma_Crossbrowser_HTLM_and_Allure_Reports.py
+#    HTML Report:
+#    python3 \Unittest_Puma_Crossbrowser_HTLM_and_Allure_Reports.py
 
 
 
