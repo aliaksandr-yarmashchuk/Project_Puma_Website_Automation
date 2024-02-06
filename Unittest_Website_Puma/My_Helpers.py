@@ -21,9 +21,9 @@ fake_first_name = "firstName"  # NAME
 fake_last_name = "lastName"  # NAME
 email_1 = "email"  # NAME
 # You need to change email every time you test
-gmail = "qwebwqryth@gmail.com"
-gmail_edge = "iertyuiertr@gmail.com"
-gmail_safari = "byryrrtytysr@gmail.com"
+gmail = "test11111@gmail.com"
+gmail_edge = "test22222@gmail.com"
+gmail_safari = "test33333@gmail.com"
 fake_password = "password"  # NAME
 button_submit = "//button[@type='submit']"  # XPath
 wait_My_Account = "(//div[contains(@data-uds-child,'stack')])[2]"  # XPath
@@ -103,16 +103,16 @@ back_to_account = "//div[contains(text(),'Back to my account')]"  # XPath
 
 # register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound in Positive Test-Case 2 and registration_form_error in Negative Test-Case 1
 
-incor_email = "tupkcts.def@mail"
+incor_email = "test44444.def@mail"
 registration_form_error = "//div[@data-test-id='registration-form-error']"  # XPath
 
 # ----------Test-Case 2----------
 
 # register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound in Positive Test-Case 2
 # You need to change email every time you test
-gmail2 = "ukkpoietewquj@gmail.com"
-gmail_edge2 = "bbwertyutyhs@gmail.com"
-gmail_safari2 = "suwyuiqwerfgqs@gmail.com"
+gmail2 = "test5555555@gmail.com"
+gmail_edge2 = "test6666666@gmail.com"
+gmail_safari2 = "test7777777@gmail.com"
 incor_password = "12356789"
 
 # ----------Test-Case 3----------
@@ -126,7 +126,7 @@ registration_error = "//span[contains(text(),'Please fill out all mandatory fiel
 
 # register_button, wait_Registr_Account, fake_first_name, fake_last_name, email_1, fake_password, button_submit, wait_My_Account, text_My_Accound, registration_error in Positive Test-Case 2 and Negative Test-Case 3
 
-gmail4 = "ypukcpa@gmail.com"
+gmail4 = "test11111@gmail.com"
 empty_password = ""
 registration_error_1 = "//p[contains(text(),'Please fill out this field.')]"  # XPath
 
