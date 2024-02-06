@@ -29,7 +29,7 @@ class Chrome_Puma_Test(unittest.TestCase):
     def test01_positive_opening_website_url(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -57,7 +57,7 @@ class Chrome_Puma_Test(unittest.TestCase):
     def test02_positive_registration_user_account(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -81,7 +81,7 @@ class Chrome_Puma_Test(unittest.TestCase):
         driver.find_element(By.NAME, HP.email_1).send_keys(HP.gmail)
         driver.find_element(By.NAME, HP.fake_password).send_keys(fake.password())
         driver.find_element(By.XPATH, HP.button_submit).click()
-        time.sleep(6)
+        time.sleep(3)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.wait_My_Account)))
         driver.find_element(By.XPATH, HP.text_My_Accound)
 
@@ -103,7 +103,7 @@ class Chrome_Puma_Test(unittest.TestCase):
     def test03_positive_login_user_account(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -122,7 +122,7 @@ class Chrome_Puma_Test(unittest.TestCase):
         driver.find_element(By.ID, HP.password_const).send_keys(HP.password)
         driver.find_element(By.XPATH, HP.button_login_submit).click()
 
-        time.sleep(4)
+        time.sleep(3)
 
         # Assert that in title "PUMA Online Shop - My account"
 
@@ -137,7 +137,7 @@ class Chrome_Puma_Test(unittest.TestCase):
         # Sign out
         time.sleep(2)
         driver.find_element(By.ID, HP.account_button).click()
-        time.sleep(3)
+        time.sleep(2)
         driver.find_element(By.XPATH, HP.logOut_button).click()
 
     def tearDown(self):
@@ -148,7 +148,7 @@ class Chrome_Puma_Test(unittest.TestCase):
     def test04_positive_address_book(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -216,9 +216,9 @@ class Chrome_Puma_Test(unittest.TestCase):
         # Sign out
 
         driver.find_element(By.ID, HP.account_button).click()
-        time.sleep(3)
+        time.sleep(2)
         driver.find_element(By.XPATH, HP.logOut_button).click()
-        time.sleep(3)
+        time.sleep(2)
     def tearDown(self):
         self.driver.quit()
 
@@ -227,7 +227,7 @@ class Chrome_Puma_Test(unittest.TestCase):
     def test05_positive_edit_address_in_book(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -246,7 +246,7 @@ class Chrome_Puma_Test(unittest.TestCase):
         driver.find_element(By.ID, HP.password_const).send_keys(HP.password)
         driver.find_element(By.XPATH, HP.button_login_submit).click()
 
-        time.sleep(5)
+        time.sleep(3)
 
         # Assert that in title "PUMA Online Shop - My account"
 
@@ -306,9 +306,9 @@ class Chrome_Puma_Test(unittest.TestCase):
         # Sign out
 
         driver.find_element(By.ID, HP.account_button).click()
-        time.sleep(3)
+        time.sleep(2)
         driver.find_element(By.XPATH, HP.logOut_button).click()
-        time.sleep(3)
+        time.sleep(2)
     def tearDown(self):
         self.driver.quit()
 
@@ -320,7 +320,7 @@ class Chrome_Puma_Test(unittest.TestCase):
     def test01_negative_registration_incorrect_email(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -368,7 +368,7 @@ class Chrome_Puma_Test(unittest.TestCase):
     def test02_negative_registration_incorrect_password(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -415,7 +415,7 @@ class Chrome_Puma_Test(unittest.TestCase):
     def test03_negative_registration_empty_email(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -460,7 +460,7 @@ class Chrome_Puma_Test(unittest.TestCase):
     def test04_negative_registration_empty_password(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -506,7 +506,7 @@ class Chrome_Puma_Test(unittest.TestCase):
     def test05_negative_login_user_account_invalid_email(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -539,7 +539,7 @@ class Chrome_Puma_Test(unittest.TestCase):
     def test06_negative_login_user_account_invalid_password(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -574,7 +574,7 @@ class Chrome_Puma_Test(unittest.TestCase):
     def test01_Adhoc_registration_incorrect_email(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -628,7 +628,7 @@ class Edge_Puma_Test(unittest.TestCase):
     def test01_positive_opening_website_url(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -656,7 +656,7 @@ class Edge_Puma_Test(unittest.TestCase):
     def test02_positive_registration_user_account(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -680,7 +680,7 @@ class Edge_Puma_Test(unittest.TestCase):
         driver.find_element(By.NAME, HP.email_1).send_keys(HP.gmail_edge)
         driver.find_element(By.NAME, HP.fake_password).send_keys(fake.password())
         driver.find_element(By.XPATH, HP.button_submit).click()
-        time.sleep(6)
+        time.sleep(2)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.wait_My_Account)))
         time.sleep(2)
         driver.find_element(By.XPATH, HP.text_My_Accound)
@@ -703,7 +703,7 @@ class Edge_Puma_Test(unittest.TestCase):
     def test03_positive_login_user_account(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -737,7 +737,7 @@ class Edge_Puma_Test(unittest.TestCase):
         # Sign out
         time.sleep(2)
         driver.find_element(By.ID, HP.account_button).click()
-        time.sleep(3)
+        time.sleep(2)
         driver.find_element(By.XPATH, HP.logOut_button).click()
 
     def tearDown(self):
@@ -748,7 +748,7 @@ class Edge_Puma_Test(unittest.TestCase):
     def test04_positive_address_book(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -816,9 +816,9 @@ class Edge_Puma_Test(unittest.TestCase):
         # Sign out
 
         driver.find_element(By.ID, HP.account_button).click()
-        time.sleep(3)
+        time.sleep(2)
         driver.find_element(By.XPATH, HP.logOut_button).click()
-        time.sleep(3)
+        time.sleep(2)
     def tearDown(self):
         self.driver.quit()
 
@@ -827,7 +827,7 @@ class Edge_Puma_Test(unittest.TestCase):
     def test05_positive_edit_address_in_book(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -846,7 +846,7 @@ class Edge_Puma_Test(unittest.TestCase):
         driver.find_element(By.ID, HP.password_const).send_keys(HP.password)
         driver.find_element(By.XPATH, HP.button_login_submit).click()
 
-        time.sleep(6)
+        time.sleep(3)
 
         # Assert that in title "PUMA Online Shop - My account"
 
@@ -905,9 +905,9 @@ class Edge_Puma_Test(unittest.TestCase):
         # Sign out
 
         driver.find_element(By.ID, HP.account_button).click()
-        time.sleep(3)
+        time.sleep(2)
         driver.find_element(By.XPATH, HP.logOut_button).click()
-        time.sleep(3)
+        time.sleep(2)
     def tearDown(self):
         self.driver.quit()
 
@@ -919,7 +919,7 @@ class Edge_Puma_Test(unittest.TestCase):
     def test01_negative_registration_incorrect_email(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -967,7 +967,7 @@ class Edge_Puma_Test(unittest.TestCase):
     def test02_negative_registration_incorrect_password(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1014,7 +1014,7 @@ class Edge_Puma_Test(unittest.TestCase):
     def test03_negative_registration_empty_email(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1059,7 +1059,7 @@ class Edge_Puma_Test(unittest.TestCase):
     def test04_negative_registration_empty_password(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1105,7 +1105,7 @@ class Edge_Puma_Test(unittest.TestCase):
     def test05_negative_login_user_account_invalid_email(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1138,7 +1138,7 @@ class Edge_Puma_Test(unittest.TestCase):
     def test06_negative_login_user_account_invalid_password(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1173,7 +1173,7 @@ class Edge_Puma_Test(unittest.TestCase):
     def test01_Adhoc_registration_incorrect_email(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1228,7 +1228,7 @@ class Safari_Puma_Test(unittest.TestCase):
     def test01_positive_opening_website_url(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         #driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1256,7 +1256,7 @@ class Safari_Puma_Test(unittest.TestCase):
     def test02_positive_registration_user_account(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         #driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1266,7 +1266,7 @@ class Safari_Puma_Test(unittest.TestCase):
         driver.minimize_window()
         driver.maximize_window()
 
-        time.sleep(3)
+        time.sleep(2)
 
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1287,9 +1287,9 @@ class Safari_Puma_Test(unittest.TestCase):
         # You need to change email1 every time you test
         driver.find_element(By.NAME, HP.email_1).send_keys(HP.gmail_safari)
         driver.find_element(By.NAME, HP.fake_password).send_keys(fake.password())
-        time.sleep(3)
+        time.sleep(2)
         driver.find_element(By.XPATH, HP.button_submit).click()
-        time.sleep(3)
+        time.sleep(2)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.wait_My_Account)))
         time.sleep(2)
         driver.find_element(By.XPATH, HP.text_My_Accound)
@@ -1312,7 +1312,7 @@ class Safari_Puma_Test(unittest.TestCase):
     def test03_positive_login_user_account(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         #driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1322,7 +1322,7 @@ class Safari_Puma_Test(unittest.TestCase):
         driver.minimize_window()
         driver.maximize_window()
 
-        time.sleep(3)
+        time.sleep(2)
 
         # Close pop-up message 1
         driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1367,7 +1367,7 @@ class Safari_Puma_Test(unittest.TestCase):
     def test04_positive_address_book(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         #driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1444,9 +1444,9 @@ class Safari_Puma_Test(unittest.TestCase):
         # Sign out
 
         driver.find_element(By.ID, HP.account_button).click()
-        time.sleep(3)
+        time.sleep(2)
         driver.find_element(By.XPATH, HP.logOut_button).click()
-        time.sleep(3)
+        time.sleep(2)
 
     def tearDown(self):
         self.driver.quit()
@@ -1456,7 +1456,7 @@ class Safari_Puma_Test(unittest.TestCase):
     def test05_positive_edit_address_in_book(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         #driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1482,7 +1482,7 @@ class Safari_Puma_Test(unittest.TestCase):
         driver.find_element(By.ID, HP.password_const).send_keys(HP.password)
         driver.find_element(By.XPATH, HP.button_login_submit).click()
 
-        time.sleep(6)
+        time.sleep(3)
 
         # Assert that in title "PUMA Online Shop - My account"
 
@@ -1540,9 +1540,9 @@ class Safari_Puma_Test(unittest.TestCase):
         # Sign out
 
         driver.find_element(By.ID, HP.account_button).click()
-        time.sleep(3)
+        time.sleep(2)
         driver.find_element(By.XPATH, HP.logOut_button).click()
-        time.sleep(3)
+        time.sleep(2)
 
     def tearDown(self):
         self.driver.quit()
@@ -1554,7 +1554,7 @@ class Safari_Puma_Test(unittest.TestCase):
     def test01_negative_registration_incorrect_email(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         #driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1608,7 +1608,7 @@ class Safari_Puma_Test(unittest.TestCase):
     def test02_negative_registration_incorrect_password(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         #driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1662,7 +1662,7 @@ class Safari_Puma_Test(unittest.TestCase):
     def test03_negative_registration_empty_email(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         #driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1714,7 +1714,7 @@ class Safari_Puma_Test(unittest.TestCase):
     def test04_negative_registration_empty_password(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         #driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1767,7 +1767,7 @@ class Safari_Puma_Test(unittest.TestCase):
     def test05_negative_login_user_account_invalid_email(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         #driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1808,7 +1808,7 @@ class Safari_Puma_Test(unittest.TestCase):
     def test06_negative_login_user_account_invalid_password(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         #driver.find_element(By.XPATH, HP.popUp_message_1).click()
@@ -1851,7 +1851,7 @@ class Safari_Puma_Test(unittest.TestCase):
     def test01_Adhoc_registration_incorrect_email(self):
         driver = self.driver
         driver.get(HP.url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 5)
         wait.until(EC.visibility_of_element_located((By.XPATH, HP.menu_bar)))
         # Close pop-up message 1
         #driver.find_element(By.XPATH, HP.popUp_message_1).click()
