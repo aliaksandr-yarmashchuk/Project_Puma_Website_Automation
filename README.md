@@ -18,3 +18,4 @@
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRplwLESVT3BCXH-I8IjHEKpUjBMg2x4OH4K_zhavV5z2c_celnSza3Ogv615aDY8BWWg&usqp=CAU" title="Webpagetest" alt="Webpagetest" width="55"/>
   <img src="https://pipedream.com/s.v0/app_mvNhlp/logo/orig" title="Mozilla Observatory" alt="Mozilla Observatory" width="55"/>
   <img src="https://www.gartner.com/pi/vendorimages/pentest-tools-com_penetration-testing_1680780622631.png" title="Pentest Tools" alt="Pentest Tools" width="55"/>
+  <img src="https://ps.w.org/sucuri-scanner/assets/icon-256x256.png?rev=2875755" title="Sucuri" alt="Sucuri" width="55"/>
