@@ -12,3 +12,4 @@
   <img src="https://github.com/devicons/devicon/blob/master/icons/chrome/chrome-original.svg" title="Chrome" alt="Chrome" width="55" height="55"/>
   <img src="https://github.com/devicons/devicon/blob/master/icons/safari/safari-original.svg" title="Safari" alt="Safari" width="55" height="55"/>
   <img src="https://avatars.githubusercontent.com/u/11354582?s=200&v=4" title="Edge" alt="Edge" width="55"/>
+  <img src="https://lh3.googleusercontent.com/JsGtt7BHEbHhQl5OzJikROL49WGoN0fBNcU_mvLRjWqx7nm7r7rzdG0DpET4qcK1FhNkFpcKf600G-Eoxx-_q3D4iA=s120" title="Allure" alt="Allure" width="55"/>
