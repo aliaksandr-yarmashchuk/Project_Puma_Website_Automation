@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "84a8b52b-58da-4f7e-b46d-19f858c4c86c",
+		"name": "API NASA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31163499"
+	},
+	"item": [
+		{
+			"name": "Mars Rover Photos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Status Code 200",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"// Status time < 1000ms",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"// Status Size",
+							"pm.test(\"Response Size is less than 2000ms\", function () {",
+							"    pm.expect(pm.response.responseSize).to.be.below(2000);",
+							"});",
+							"// Status 200, Status OK, Response is JSON format",
+							"pm.test(\"Status code is 200, OK and response is JSON  \", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.ok;",
+							"    pm.response.to.be.json;",
+							"});",
+							"// Response should be okay to process",
+							"pm.test(\"Response should be okay to process\", function () {",
+							"    pm.response.to.not.be.error;",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.not.have.jsonBody(\"error\");",
+							"});",
+							"// Response body should be in the correct format",
+							"pm.test(\"Response body should be in the correct format\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.photos[0]).to.be.a(\"object\");",
+							"    pm.expect(jsonData.photos[0].id).to.be.a(\"number\");",
+							"    pm.expect(jsonData.photos[0].sol).to.be.a(\"number\")",
+							"    pm.expect(jsonData.photos[0].camera).to.be.a(\"object\");",
+							"    pm.expect(jsonData.photos[0].camera.id).to.be.a(\"number\");",
+							"    pm.expect(jsonData.photos[0].camera.name).to.be.a(\"string\");",
+							"    pm.expect(jsonData.photos[0].camera.rover_id).to.be.a(\"number\");",
+							"    pm.expect(jsonData.photos[0].camera.full_name).to.be.a(\"string\");",
+							"    pm.expect(jsonData.photos[0].earth_date).to.be.a(\"string\");",
+							"    pm.expect(jsonData.photos[0].rover).to.be.a(\"object\");",
+							"    pm.expect(jsonData.photos[0].rover.id).to.be.a(\"number\");",
+							"    pm.expect(jsonData.photos[0].rover.name).to.be.a(\"string\");",
+							"    pm.expect(jsonData.photos[0].rover.landing_date).to.be.a(\"string\");",
+							"    pm.expect(jsonData.photos[0].rover.launch_date).to.be.a(\"string\");",
+							"    pm.expect(jsonData.photos[0].rover.status).to.be.a(\"string\");",
+							"    pm.expect(jsonData.photos[0].rover.max_sol).to.be.a(\"number\");",
+							"    pm.expect(jsonData.photos[0].rover.max_date).to.be.a(\"string\");",
+							"    pm.expect(jsonData.photos[0].rover.total_photos).to.be.a(\"number\");",
+							"});",
+							"// Body has correct Keys",
+							"pm.test(\"Body has correct Keys\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"    pm.expect(pm.response.text()).to.include(\"sol\");",
+							"    pm.expect(pm.response.text()).to.include(\"camera\");",
+							"    pm.expect(pm.response.text()).to.include(\"img_src\");",
+							"    pm.expect(pm.response.text()).to.include(\"earth_date\");",
+							"    pm.expect(pm.response.text()).to.include(\"rover\");",
+							"    pm.expect(pm.response.text()).to.include(\"name\");",
+							"    pm.expect(pm.response.text()).to.include(\"rover_id\");",
+							"    pm.expect(pm.response.text()).to.include(\"full_name\");",
+							"    pm.expect(pm.response.text()).to.include(\"landing_date\");",
+							"    pm.expect(pm.response.text()).to.include(\"launch_date\");",
+							"    pm.expect(pm.response.text()).to.include(\"status\");",
+							"    pm.expect(pm.response.text()).to.include(\"max_sol\");",
+							"    pm.expect(pm.response.text()).to.include(\"max_date\");",
+							"    pm.expect(pm.response.text()).to.include(\"total_photos\");",
+							"    pm.expect(pm.response.text()).to.include(\"cameras\");",
+							"});",
+							"// Headers is correct",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");",
+							"    pm.response.to.have.header(\"Transfer-Encoding\", \"chunked\");",
+							"    pm.response.to.have.header(\"Connection\", \"keep-alive\");",
+							"    pm.response.to.have.header(\"Access-Control-Allow-Origin\", \"*\");",
+							"    pm.response.to.have.header(\"Cache-Control\", \"max-age=0, private, must-revalidate\");",
+							"    pm.response.to.have.header(\"Content-Encoding\", \"gzip\");",
+							"    pm.response.to.have.header(\"Referrer-Policy\", \"strict-origin-when-cross-origin\");",
+							"    pm.response.to.have.header(\"X-Frame-Options\", \"SAMEORIGIN\");",
+							"});",
+							"//"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&api_key={{My_Key}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"mars-photos",
+						"api",
+						"v1",
+						"rovers",
+						"curiosity",
+						"photos"
+					],
+					"query": [
+						{
+							"key": "sol",
+							"value": "1000"
+						},
+						{
+							"key": "camera",
+							"value": "fhaz"
+						},
+						{
+							"key": "api_key",
+							"value": "{{My_Key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
