@@ -17,7 +17,7 @@
   <img src="https://lh3.googleusercontent.com/JsGtt7BHEbHhQl5OzJikROL49WGoN0fBNcU_mvLRjWqx7nm7r7rzdG0DpET4qcK1FhNkFpcKf600G-Eoxx-_q3D4iA=s120" title="Lighthouse" alt="Lighthouse" width="55"/>
   <img src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_49cb08ff13adca52db37c64dd94c2154/browserstack-browserstack.png" title="BrowserStack" alt="BrowserStack" width="55"/>
   <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/gtmetrix_logo_icon_171030.png" title="GTmetrix" alt="GTmetrix" width="110"/>
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRplwLESVT3BCXH-I8IjHEKpUjBMg2x4OH4K_zhavV5z2c_celnSza3Ogv615aDY8BWWg&usqp=CAU" title="Webpagetest" alt="Webpagetest" width="55"/>
+  <img src="https://cdn-1.webcatalog.io/catalog/webpagetest/webpagetest-icon-filled-256.webp?v=1714783126758" title="Webpagetest" alt="Webpagetest" width="55"/>
   <img src="https://pipedream.com/s.v0/app_mvNhlp/logo/orig" title="Mozilla Observatory" alt="Mozilla Observatory" width="55"/>
   <img src="https://ps.w.org/sucuri-scanner/assets/icon-256x256.png?rev=2875755" title="Sucuri" alt="Sucuri" width="55"/>
   <img src="https://avatars.githubusercontent.com/u/5879127?s=200&v=4" title="Allure Report" alt="Allure Report" width="55"/>
